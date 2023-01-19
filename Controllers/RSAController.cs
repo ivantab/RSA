@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Encodings;
@@ -71,6 +72,8 @@ namespace RSA.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<string> GetData(string code)
         {
+
+           return Ok(_csp.CspKeyContainerInfo.KeyContainerName);
             //Generate private ublic key
             //string publicKey;
             //string privateKey;
